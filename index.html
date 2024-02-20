@@ -4,35 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        *{ 
-            background-color:rgb(20, 122, 211);
-        }
-            
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-wrap: wrap;
-            align-content: flex-end;
-            justify-content: center;
-        }
-
-        button {
-            width: calc(50% - 4px); /* Adjust button width to fill half the container width, accounting for any potential border/margin */
-            height: 25vh; /* Each button will take up 25% of the viewport height, making all 4 take up 50% */
-            margin: 2px; /* Small margin around buttons */
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Question</p>
-    <div>
-    <button>answer1</button>
-    <button>answer2</button>
-    <button>answer3</button>
-    <button>answer4</button>
-</div>
+    <div id="question">
+        <p id="questionText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+    <div id="timerContainer">
+        <div id="timerBar"></div>
+    </div>
+    <div class="buttons">
+        <button id="answer1" >answer1</button>
+        <button id="answer2" >answer2</button>
+        <button id="answer3" >answer3</button>
+        <button id="answer4" >answer4</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

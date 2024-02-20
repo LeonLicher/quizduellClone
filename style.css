@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr auto auto; /* Adjust the grid layout */
+    height: 100vh;
+    background-color: rgb(20, 122, 211);
+    font-family: sans-serif;
+    background: radial-gradient(circle, rgb(20, 122, 211), rgb(58, 123, 213), rgb(0, 210, 255));
+}
+
+#question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 3px;
+    font-size: 5vw;
+}
+
+#timerContainer {
+    width: 100%;
+    background-color: #ddd;
+}
+
+#timerBar {
+    width: 1%;
+    height: 20px;
+    background-color: #4CAF50;
+    color: white;
+    line-height: 20px;
+    text-align: center;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+    gap: 10px; /* Space between buttons */
+    padding: 10px; /* Padding around buttons */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+button {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    height: 20vh;
+}

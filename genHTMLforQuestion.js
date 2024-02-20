@@ -1,4 +1,4 @@
-function getHtml(question, answers) {
+function getHtml(question, answer1,answer2,answer3,answer4) {
     let html = `
         <!DOCTYPE html>
         <html lang="en">
@@ -10,15 +10,10 @@ function getHtml(question, answers) {
         
         <body>
             <h1>${question}</h1>
-    `;
-
-    // Adding answers as buttons
-    answers.forEach(answer => {
-        html += `<button>${answer}</button>`;
-    });
-
-    // Closing HTML tags
-    html += `
+    <button>${answer1}</button>
+    <button>${answer2}</button>
+    <button>${answer3}</button>
+    <button>${answer4}</button>
         </body>
         </html>
     `;
