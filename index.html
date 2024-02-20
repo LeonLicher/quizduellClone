@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{ 
+            background-color:rgb(20, 122, 211);
+        }
+            
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-end;
+            justify-content: center;
+        }
+
+        button {
+            width: calc(50% - 4px); /* Adjust button width to fill half the container width, accounting for any potential border/margin */
+            height: 25vh; /* Each button will take up 25% of the viewport height, making all 4 take up 50% */
+            margin: 2px; /* Small margin around buttons */
+        }
+
+    </style>
+</head>
+<body>
+    <p>Question</p>
+    <div>
+    <button>answer1</button>
+    <button>answer2</button>
+    <button>answer3</button>
+    <button>answer4</button>
+</div>
+</body>
+</html>
