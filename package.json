@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/LeonLicher/quizduellClone/issues"
   },
-  "homepage": "https://github.com/LeonLicher/quizduellClone#readme"
+  "homepage": "https://github.com/LeonLicher/quizduellClone#readme",
+  "dependencies": {
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.2.0"
+  }
 }
