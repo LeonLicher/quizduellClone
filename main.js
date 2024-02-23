@@ -21,10 +21,9 @@ client.connect()
 
 
 const app = express();
-app.use('/',  (req, res, next) => {
-    // wird bei jedem Request zuerst aufgerufen
-    next();
-});
+
+app.use(express.static('public'));
+
 app.get('/', async (req, res) => {
 try{
     const db = client.db("myDB")
