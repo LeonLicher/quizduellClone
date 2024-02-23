@@ -1,11 +1,11 @@
 import express from 'express';
 import { getHtml } from './genHTMLforQuestion.js';
-
 import mongodb from 'mongodb';
 const { MongoClient } = mongodb;
-const url = 'mongodb://stud-vm-0332:27017';
+
+const url = 'mongodb://stud-vm-0901:27017';
 const client = new MongoClient(url, {
-    auth: { username: 'root', password: 'wifhm' },
+    auth: { username: 'leon', password: 'pass' },
     authSource: 'myDB'
 });
 client.connect()
@@ -21,15 +21,61 @@ client.connect()
 
 
 const app = express();
-app.use('/', (req, res, next) => {
+app.use('/',  (req, res, next) => {
     // wird bei jedem Request zuerst aufgerufen
     next();
 });
-app.get('/', (req, res) => {
-    res.send(getHtml("Was ist 1+1?", [1, 2, 3, 4]));
+app.get('/', async (req, res) => {
+try{
+    const db = client.db("myDB")
+    const questionsCollection = db.collection("questions")
+    const questionsDoc = await questionsCollection.findOne({})
+
+    if(questionsDoc){
+        const htmlContent = getHtml(questionsDoc.question, ...questionsDoc.answers)
+        res.send(htmlContent)
+    } else {
+        res.status(404).send('No question found');
+    }
+    } catch (err) {
+        console.error('Error fetching question: ', err);
+        res.status(500).send('Internal Server Error');
+    }
+    
+    //res.send(getHtml("Was ist 1+1?", 1, 2, 3, 4));
 });
 
 
 app.listen(3000, () => {
     console.log('listening on port 3000!');
 });
+
+function findRandomQuestion(){
+    
+
+}
+
+
+
+
+async function insertMultipleQuestions(questionsArray) {
+    try {
+        const db = client.db('myDB');
+        const questionsCollection = db.collection('questions');
+
+        const result = await questionsCollection.insertMany(questionsArray);
+        console.log(`${result.insertedCount} documents were inserted`);
+    } catch (err) {
+        console.error('Error inserting multiple questions: ', err);
+    }
+}
+
+// Example usage
+/*
+
+insertMultipleQuestions([
+    { question: "1+1?", answers: ["2", "Bonn", "Hamburg", "München"] },
+
+]);
+
+*/
