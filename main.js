@@ -30,6 +30,7 @@ try{
     const db = client.db("myDB")
     const questionsCollection = db.collection("questions")
     const questionsDoc = await questionsCollection.findOne({})
+    //TODO: #1 
 
     if(questionsDoc){
         const htmlContent = getHtml(questionsDoc.question, ...questionsDoc.answers)
